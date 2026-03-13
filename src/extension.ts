@@ -328,10 +328,41 @@ function provideCodeLenses(document: vscode.TextDocument): vscode.CodeLens[] {
 
     // Find all expensive resources
     const expensivePatterns = [
+        // Original 4 rules
         { pattern: /resource\s+"aws_nat_gateway"\s+"[^"]+"/g, type: 'nat' },
         { pattern: /billing_mode\s*=\s*"PROVISIONED"/g, type: 'dynamodb' },
         { pattern: /instance_type\s*=\s*"(t3\.large|t3\.xlarge|m5\.large)"/g, type: 'ec2' },
-        { pattern: /memory_size\s*=\s*(1024|2048|3008)/g, type: 'lambda' }
+        { pattern: /memory_size\s*=\s*(1024|2048|3008)/g, type: 'lambda' },
+
+        // Rule 5: RDS Instance Sizes
+        { pattern: /instance_class\s*=\s*"(db\.t3\.large|db\.t3\.xlarge|db\.m5\.large|db\.m5\.xlarge|db\.r5\.large)"/g, type: 'rds-instance' },
+
+        // Rule 6: EBS Volume Type (gp2)
+        { pattern: /type\s*=\s*"gp2"/g, type: 'ebs-type' },
+
+        // Rule 7: Large EBS Volumes
+        { pattern: /size\s*=\s*(500|1000|2000|5000)/g, type: 'ebs-size' },
+
+        // Rule 8: Application Load Balancer
+        { pattern: /resource\s+"aws_lb"\s+"[^"]+"/g, type: 'alb' },
+
+        // Rule 9: Unattached Elastic IP
+        { pattern: /resource\s+"aws_eip"\s+"[^"]+"/g, type: 'eip' },
+
+        // Rule 10: CloudWatch Logs Retention
+        { pattern: /retention_in_days\s*=\s*0/g, type: 'cloudwatch' },
+
+        // Rule 11: S3 STANDARD Storage Class
+        { pattern: /storage_class\s*=\s*"STANDARD"/g, type: 's3-storage' },
+
+        // Rule 12: Large RDS Storage
+        { pattern: /allocated_storage\s*=\s*(500|1000|2000)/g, type: 'rds-storage' },
+
+        // Rule 13: Multi-AZ RDS
+        { pattern: /multi_az\s*=\s*true/g, type: 'rds-multi-az' },
+
+        // Rule 14: EC2 Detailed Monitoring
+        { pattern: /monitoring\s*=\s*true/g, type: 'ec2-monitoring' }
     ];
 
     expensivePatterns.forEach(({ pattern, type }) => {

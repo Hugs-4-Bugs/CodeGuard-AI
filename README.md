@@ -1,354 +1,71 @@
-# CodeGuard AI 🚀
+# codeguard-ai README
 
-**AI-Powered AWS Cost Optimization for Terraform (VS Code Extension)**
+This is the README for your extension "codeguard-ai". After writing up a brief description, we recommend including the following sections.
 
-CodeGuard AI is a developer-first tool that helps engineers **prevent expensive AWS infrastructure mistakes while writing Terraform code**. It detects cost-inefficient configurations in real time and uses **AI (AWS Bedrock / Claude)** to suggest optimized cloud architecture and Terraform alternatives.
+## Features
 
-Instead of discovering cloud cost problems **after deployment**, CodeGuard AI stops them **during development**.
+Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
 
----
+For example if there is an image subfolder under your extension project workspace:
 
-# 📌 Problem
+\!\[feature X\]\(images/feature-x.png\)
 
-Cloud infrastructure costs often grow unexpectedly because developers:
+> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
 
-* Choose expensive default configurations
-* Over-provision compute resources
-* Use costly AWS services without realizing it
-* Lack visibility into cost impact during development
+## Requirements
 
-Example mistakes commonly seen in Terraform:
+If you have any requirements or dependencies, add a section describing those and how to install and configure them.
 
-* NAT Gateway used unnecessarily
-* DynamoDB `PROVISIONED` capacity instead of on-demand
-* Lambda functions allocated excessive memory
-* Oversized EC2 instances used for development
+## Extension Settings
 
-These mistakes are usually detected **after deployment**, when the AWS bill arrives.
+Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
 
----
+For example:
 
-# 💡 Solution
+This extension contributes the following settings:
 
-CodeGuard AI integrates directly into **VS Code** and analyzes Terraform code while developers write infrastructure.
+* `myExtension.enable`: Enable/disable this extension.
+* `myExtension.thing`: Set to `blah` to do something.
 
-It provides:
+## Known Issues
 
-### ⚡ Real-time cost detection
+Calling out known issues can help limit users opening duplicate issues against your extension.
 
-Instant warnings when expensive AWS configurations appear.
+## Release Notes
 
-### 🤖 AI-powered architecture optimization
+Users appreciate release notes as you update your extension.
 
-Developers can click **Analyze with AI** to receive:
+### 1.0.0
 
-* Estimated infrastructure cost
-* Optimized architecture suggestions
-* Terraform replacement code
-* Pros and considerations
-* Estimated savings
+Initial release of ...
 
-This allows developers to **fix infrastructure design before deployment**.
+### 1.0.1
+
+Fixed issue #.
+
+### 1.1.0
+
+Added features X, Y, and Z.
 
 ---
 
-# 🎯 Key Features
+## Following extension guidelines
 
-## 1️⃣ Real-Time Cost Detection
+Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
 
-CodeGuard automatically scans Terraform files and highlights cost-inefficient configurations.
+* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
 
-Example:
+## Working with Markdown
 
-```terraform
-resource "aws_nat_gateway" "main" {
-  allocation_id = "eipalloc-123"
-  subnet_id     = "subnet-456"
-}
-```
+You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
 
-VS Code instantly displays:
+* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
+* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
+* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
 
-```
-⚠ NAT Gateway costs ~$32/month
-```
+## For more information
 
-Diagnostics appear as:
+* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
+* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
 
-* Editor squiggly underline
-* Problems panel entry
-* Inline tooltip warnings
-
----
-
-## 2️⃣ AI-Powered Cost Optimization
-
-Developers can click **Analyze with AI** above expensive resources.
-
-CodeGuard sends the Terraform block to **AWS Bedrock (Claude)** for analysis.
-
-Example output:
-
-```
-Current Cost: $32/month
-Optimized Cost: $0/month
-Annual Savings: $384/year
-```
-
-### Recommendation
-
-Replace NAT Gateway with **VPC Endpoints** for S3 and DynamoDB access.
-
-### Pros
-
-* Zero monthly cost
-* Lower latency
-* More secure (no internet gateway required)
-* Scales automatically
-
-### Considerations
-
-* No internet access
-* Only works for supported AWS services
-* Requires route table configuration
-
----
-
-## 3️⃣ Optimized Terraform Suggestions
-
-AI generates improved Terraform code.
-
-Example:
-
-```terraform
-resource "aws_vpc_endpoint" "s3" {
-  vpc_id       = aws_vpc.main.id
-  service_name = "com.amazonaws.us-east-1.s3"
-}
-
-resource "aws_vpc_endpoint" "dynamodb" {
-  vpc_id       = aws_vpc.main.id
-  service_name = "com.amazonaws.us-east-1.dynamodb"
-}
-```
-
-Developers can copy optimized code directly from the AI panel.
-
----
-
-# 🧠 AI Architecture
-
-CodeGuard AI combines **rule-based detection** and **AI analysis**.
-
-```
-Terraform Code
-      ↓
-Local Static Rules (Instant)
-      ↓
-Cost Warnings in Editor
-      ↓
-Developer clicks "Analyze with AI"
-      ↓
-VS Code Extension
-      ↓
-AWS API Gateway
-      ↓
-AWS Lambda
-      ↓
-AWS Bedrock (Claude)
-      ↓
-AI Optimization Suggestions
-```
-
-This hybrid architecture provides:
-
-* Instant feedback
-* Deep AI reasoning
-* Stable developer experience
-
----
-
-# 🧰 Technologies Used
-
-| Component               | Technology                 |
-| ----------------------- | -------------------------- |
-| Editor Extension        | VS Code Extension API      |
-| Language                | TypeScript                 |
-| Infrastructure Language | Terraform                  |
-| AI Model                | Claude 3.5 via AWS Bedrock |
-| Backend                 | AWS Lambda                 |
-| API Layer               | AWS API Gateway            |
-| Frontend Panel          | VS Code Webview            |
-
----
-
-# 🔍 Current Cost Rules
-
-CodeGuard currently detects the following cost risks:
-
-| AWS Service | Issue                          |
-| ----------- | ------------------------------ |
-| NAT Gateway | ~$32/month fixed cost          |
-| DynamoDB    | PROVISIONED capacity expensive |
-| Lambda      | Excessive memory allocation    |
-| EC2         | Oversized instance types       |
-
-Additional rules planned for:
-
-* RDS instance sizing
-* S3 storage class usage
-* Load balancers
-* EBS volumes
-* EKS node types
-
----
-
-# 📸 Example Workflow
-
-### Step 1 — Developer writes Terraform
-
-```terraform
-resource "aws_instance" "app" {
-  instance_type = "t3.large"
-}
-```
-
-### Step 2 — CodeGuard detects cost risk
-
-```
-💸 t3.large detected
-Consider t3.micro or t3.small for dev/test
-```
-
-### Step 3 — Click "Analyze with AI"
-
-CodeGuard opens an AI analysis panel.
-
-### Step 4 — AI suggests improvements
-
-* Smaller instance types
-* Estimated cost savings
-* Optimized Terraform code
-
----
-
-# ⚙ Installation
-
-1. Clone the repository
-
-```
-git clone https://github.com/your-repo/codeguard-ai.git
-```
-
-2. Install dependencies
-
-```
-npm install
-```
-
-3. Compile the extension
-
-```
-npm run compile
-```
-
-4. Run the extension
-
-Press:
-
-```
-F5
-```
-
-This launches the **Extension Development Host**.
-
----
-
-# 🚀 Usage
-
-1. Open a Terraform file (`.tf`)
-2. Write AWS infrastructure code
-3. CodeGuard automatically detects expensive patterns
-4. Click **Analyze with AI**
-5. Review optimization suggestions
-6. Apply improved Terraform configuration
-
----
-
-# 📊 Example Cost Optimization
-
-| Resource             | Current Cost | Optimized Cost  |
-| -------------------- | ------------ | --------------- |
-| NAT Gateway          | $32/month    | $0/month        |
-| DynamoDB PROVISIONED | High         | PAY_PER_REQUEST |
-| Lambda 1024MB        | Expensive    | 256MB           |
-| EC2 t3.large         | $60/month    | t3.micro        |
-
----
-
-# 🔐 Security Considerations
-
-CodeGuard sends **only Terraform resource blocks** to the AI service.
-
-Sensitive data such as:
-
-* AWS credentials
-* Secrets
-* Access keys
-
-are **never transmitted**.
-
----
-
-# 🗺 Future Roadmap
-
-Planned improvements:
-
-* Full infrastructure cost estimation
-* Architecture-level optimization
-* More AWS service rules
-* Auto-fix suggestions (Quick Fix)
-* Multi-resource AI analysis
-* CI/CD integration
-* GitHub pull request analysis
-
----
-
-# 🎥 Demo
-
-Demo video will demonstrate:
-
-1. Writing Terraform infrastructure
-2. CodeGuard detecting cost risks
-3. AI generating optimized architecture
-4. Estimated savings displayed in real time
-
----
-
-# 🏆 Hackathon Goal
-
-CodeGuard AI aims to make **cloud cost optimization part of the development workflow**, helping teams prevent costly infrastructure mistakes before deployment.
-
----
-
-# 🤝 Contributing
-
-Contributions are welcome.
-
-To contribute:
-
-1. Fork the repository
-2. Create a feature branch
-3. Submit a pull request
-
----
-
-# 📄 License
-
-MIT License
-
----
-
-# 👨‍💻 Author
-
-Built to improve cloud infrastructure cost awareness and developer productivity.
+**Enjoy!**

@@ -394,6 +394,31 @@ Planned improvements:
 
 ---
 
+
+# 📸 Snapshots
+
+<img width="1440" height="900" alt="Screenshot 2026-03-13 at 6 59 48 AM" src="https://github.com/user-attachments/assets/ac544675-5bc5-4fd3-8607-9b328fd4c52b" />
+
+<img width="1440" height="900" alt="Screenshot 2026-03-13 at 7 01 15 AM" src="https://github.com/user-attachments/assets/6ad60be4-2e4c-41aa-812b-f0f7329239cf" />
+
+<img width="1440" height="900" alt="Screenshot 2026-03-13 at 7 00 12 AM" src="https://github.com/user-attachments/assets/1e2b2418-e84c-4559-a229-44c68848cc08" />
+
+<img width="1440" height="900" alt="Screenshot 2026-03-13 at 7 00 47 AM" src="https://github.com/user-attachments/assets/55d77e69-1a44-46af-b812-0e8d3065ff0a" />
+
+<img width="1440" height="900" alt="Screenshot 2026-03-13 at 7 02 10 AM" src="https://github.com/user-attachments/assets/fa1f6854-ff85-419f-b4e4-530407b17db0" />
+
+<img width="1440" height="900" alt="Screenshot 2026-03-13 at 7 02 40 AM" src="https://github.com/user-attachments/assets/b7e9b8cf-bf70-4455-8ba9-9709b5cfe833" />
+
+<img width="1440" height="900" alt="Screenshot 2026-03-13 at 7 03 04 AM" src="https://github.com/user-attachments/assets/9bb0e00f-e9a3-4ef9-8b53-9b28423ed052" />
+
+<img width="1440" height="900" alt="Screenshot 2026-03-13 at 7 03 27 AM" src="https://github.com/user-attachments/assets/3472a905-24bf-4c74-ae66-82f6dd5bd5ee" />
+
+<img width="1440" height="900" alt="Screenshot 2026-03-13 at 7 05 07 AM" src="https://github.com/user-attachments/assets/f98849b2-7426-43a9-897e-a64c3214c386" />
+
+<img width="1440" height="900" alt="Screenshot 2026-03-13 at 7 05 34 AM" src="https://github.com/user-attachments/assets/126d0168-df30-42f8-a7b2-2b69d1b227ec" />
+
+---
+
 # 🤝 Contributing
 
 Contributions welcome.
